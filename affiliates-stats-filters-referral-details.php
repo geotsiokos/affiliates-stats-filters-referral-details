@@ -87,9 +87,10 @@ class Affiliates_Stats_Filters_Order_Details {
 				} else {
 					$data = $result->data;
 				}
+				$data = apply_filters( 'affiliates_affiliate_stats_data', $data );
 				foreach ( $data as $key ) {
 					if ( isset( $key['title'] ) && $key['value'] ) {
-						$output .= $key['title'] . ' ' . $key['value'];
+						$output .= $key['title'] . ': ' . $key['value'];
 						$output .= '<br />';
 					}
 				}
